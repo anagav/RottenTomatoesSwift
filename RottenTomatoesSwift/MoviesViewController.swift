@@ -13,6 +13,10 @@ class MoviesViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    var movies: Dictionary<String, AnyObject>! = nil;
+    var movie: [NSDictionary]! = [];
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self;
@@ -20,7 +24,27 @@ class MoviesViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // Do any additional setup after loading the view.
         
         
-        var url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=9htuhtcb4ymusd73d4z6jxcj&page_limit=1"
+        var url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=9htuhtcb4ymusd73d4z6jxcj"
+        
+        let manager = AFHTTPRequestOperationManager()
+
+        manager.requestSerializer = AFJSONRequestSerializer()
+
+        manager.responseSerializer = AFJSONResponseSerializer()
+
+        
+        manager.GET(url, parameters: nil,
+            success: { ( operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
+                self.movies = responseObject as Dictionary<String, AnyObject>
+                self.movie = (self.movies["movies"] as AnyObject?) as? [NSDictionary];
+                
+                self.tableView.reloadData();
+                
+            },
+            failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
+                println ("ERROR");
+        })
+        
         
         
         
@@ -41,7 +65,21 @@ class MoviesViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         var cell = tableView.dequeueReusableCellWithIdentifier("MovieCell") as MovieTableViewCell
         
-        cell.movieTitleLabel.text = "test";
+        if movie.count == 0 {
+            return UITableViewCell();
+        }
+        
+        //cell.movieTitleLabel.text = movies[;
+        
+        //println("\(movie)");
+        
+        var mov = self.movie[indexPath.row];
+        
+        cell.movieTitleLabel.text = mov["title"] as String!;
+        cell.movieSynopsisLabel.text = mov["synopsis"] as String!;
+        //cell.movieSynopsisLabel.textAlignment = NSTextAlignment;
+        
+//      println("\(mov)");
         
         return cell;
     }
