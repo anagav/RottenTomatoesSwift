@@ -57,7 +57,7 @@ class MoviesViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10;
+        return movie.count;
     }
     
     
@@ -77,11 +77,30 @@ class MoviesViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         cell.movieTitleLabel.text = mov["title"] as String!;
         cell.movieSynopsisLabel.text = mov["synopsis"] as String!;
+        
+        var poster = mov["posters"] as NSDictionary
+        var posterURL = poster["thumbnail"] as NSString!;
+        
+        
+        
+        cell.moviePosterImageView.setImageWithURL(NSURL(string: posterURL));
+        
+        
+        
         //cell.movieSynopsisLabel.textAlignment = NSTextAlignment;
         
 //      println("\(mov)");
         
         return cell;
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!,
+        sender sender: AnyObject!){
+            //make sure that the segue is going to secondViewController
+            let selectedIndex = self.tableView.indexPathForCell(sender as UITableViewCell)
+            var mov = self.movie[indexPath.row];
+            segue.destinationViewController.movieSynopsisView = 
+            
     }
     
 

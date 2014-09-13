@@ -17,28 +17,28 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="185" id="AU9-IL-jIN" customClass="MovieTableViewCell" customModule="RottenTomatoesSwift" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="185" id="AU9-IL-jIN" customClass="MovieTableViewCell" customModule="RottenTomatoesSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AU9-IL-jIN" id="zhQ-oC-4wb">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="lX5-Ba-US3">
-                                                    <rect key="frame" x="113" y="31" width="207" height="139.5"/>
+                                                    <rect key="frame" x="113" y="39" width="207" height="131.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vLy-2r-UoS">
-                                                    <rect key="frame" x="0.0" y="8" width="105" height="163"/>
+                                                    <rect key="frame" x="8" y="21" width="97" height="144"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="38R-aD-g5N">
-                                                    <rect key="frame" x="113" y="8" width="212" height="21"/>
+                                                    <rect key="frame" x="113" y="8" width="212" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name="Superclarendon-BoldItalic" family="Superclarendon" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -47,6 +47,7 @@
                                             <outlet property="moviePosterImageView" destination="vLy-2r-UoS" id="sMU-Rr-LXJ"/>
                                             <outlet property="movieSynopsisLabel" destination="lX5-Ba-US3" id="f5F-8t-Sea"/>
                                             <outlet property="movieTitleLabel" destination="38R-aD-g5N" id="c8c-OE-Vpm"/>
+                                            <segue destination="nsm-bd-EFA" kind="push" id="iUk-yl-JM1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -62,6 +63,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="713" y="330"/>
+        </scene>
+        <!--Movie View Controller-->
+        <scene sceneID="etJ-i7-IVl">
+            <objects>
+                <viewController id="nsm-bd-EFA" customClass="MovieViewController" customModule="RottenTomatoesSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Rv8-c7-2Dj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="SI5-lo-y1Z">
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dx0-fz-RKd">
+                                <rect key="frame" x="8" y="386" width="312" height="253"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </scrollView>
+                    <navigationItem key="navigationItem" id="HiS-QL-VwT"/>
+                    <connections>
+                        <outlet property="completeImageView" destination="SI5-lo-y1Z" id="9aH-FO-Jn5"/>
+                        <outlet property="movieSynopsisView" destination="dx0-fz-RKd" id="mnZ-9z-5Aa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JJe-gT-jAB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1104" y="330"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jO1-iQ-C73">

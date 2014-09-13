@@ -14,6 +14,7 @@
 		366A70CB19C4CA1600347AEF /* RottenTomatoesSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366A70CA19C4CA1600347AEF /* RottenTomatoesSwiftTests.swift */; };
 		366A70D519C4CB8200347AEF /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366A70D419C4CB8200347AEF /* MoviesViewController.swift */; };
 		366A70D719C4CD9E00347AEF /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366A70D619C4CD9E00347AEF /* MovieTableViewCell.swift */; };
+		368163FD19C4F6C60021B491 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368163FC19C4F6C60021B491 /* MovieViewController.swift */; };
 		9CE90D61481C4F36822D0B69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E117F4B097044711866EE046 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		366A70D419C4CB8200347AEF /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		366A70D619C4CD9E00347AEF /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		366A70D819C4D8A000347AEF /* RottenTomatoesSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RottenTomatoesSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		368163FC19C4F6C60021B491 /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		DB9644F071B34CFAA6F83017 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E117F4B097044711866EE046 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				366A70D419C4CB8200347AEF /* MoviesViewController.swift */,
 				366A70D619C4CD9E00347AEF /* MovieTableViewCell.swift */,
 				366A70D819C4D8A000347AEF /* RottenTomatoesSwift-Bridging-Header.h */,
+				368163FC19C4F6C60021B491 /* MovieViewController.swift */,
 			);
 			path = RottenTomatoesSwift;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				366A70B519C4CA1600347AEF /* AppDelegate.swift in Sources */,
 				366A70D519C4CB8200347AEF /* MoviesViewController.swift in Sources */,
 				366A70D719C4CD9E00347AEF /* MovieTableViewCell.swift in Sources */,
+				368163FD19C4F6C60021B491 /* MovieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
