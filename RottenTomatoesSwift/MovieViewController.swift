@@ -14,9 +14,12 @@ class MovieViewController: UIViewController {
     
     var completeImageViewVar : String = "";
     var movieSynopsisViewVar :String = "";
-    
+    var titleVar = "";
+
+
     @IBOutlet weak var movieSynopsisView: UILabel!
     
+@IBOutlet weak var titleNav: UINavigationItem!
     @IBOutlet weak var progressView: UIActivityIndicatorView!
     @IBOutlet var scrollView: UIScrollView!
     
@@ -33,7 +36,9 @@ class MovieViewController: UIViewController {
         UIView.animateWithDuration(1.5, animations: {
             self.completeImageView.alpha = 1.0
         })
-        
+
+        titleNav.title = titleVar;
+
         movieSynopsisView.text = movieSynopsisViewVar;
         
         movieSynopsisView.sizeToFit();

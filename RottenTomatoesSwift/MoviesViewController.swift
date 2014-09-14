@@ -113,6 +113,9 @@ class MoviesViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 
                 destination.movieSynopsisViewVar = mov["synopsis"] as String!;
                 var poster = mov["posters"] as NSDictionary
+                
+                destination.titleVar = mov["title"] as String
+                
                 var posterurl1 = poster["original"] as String;
                 println(posterurl1)
                 destination.completeImageViewVar = posterurl1;
