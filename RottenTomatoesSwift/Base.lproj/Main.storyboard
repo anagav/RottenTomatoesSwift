@@ -16,6 +16,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="6br-bI-cv4">
+                                    <rect key="frame" x="0.0" y="271" width="320" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="insetFor6xAndEarlier" minX="-1" minY="0.0" maxX="1" maxY="0.0"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="185" id="AU9-IL-jIN" customClass="MovieTableViewCell" customModule="RottenTomatoesSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -47,7 +52,7 @@
                                             <outlet property="moviePosterImageView" destination="vLy-2r-UoS" id="sMU-Rr-LXJ"/>
                                             <outlet property="movieSynopsisLabel" destination="lX5-Ba-US3" id="f5F-8t-Sea"/>
                                             <outlet property="movieTitleLabel" destination="38R-aD-g5N" id="c8c-OE-Vpm"/>
-                                            <segue destination="nsm-bd-EFA" kind="push" id="iUk-yl-JM1"/>
+                                            <segue destination="nsm-bd-EFA" kind="push" identifier="MovieViewController" id="iUk-yl-JM1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -55,14 +60,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="23s-hQ-Zl7"/>
+                    <navigationItem key="navigationItem" id="23s-hQ-Zl7">
+                        <nil key="title"/>
+                        <view key="titleView" hidden="YES" contentMode="scaleToFill" id="k0V-2c-QI0">
+                            <rect key="frame" x="8" y="-20" width="304" height="84"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="errorLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VAD-1w-p8i">
+                                    <rect key="frame" x="0.0" y="6" width="315" height="95"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.19054953616261838" blue="0.26402059815489076" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                    </navigationItem>
                     <connections>
+                        <outlet property="errorLabel" destination="VAD-1w-p8i" id="PtJ-H1-7WX"/>
+                        <outlet property="errorView" destination="k0V-2c-QI0" id="hnS-1X-g0b"/>
+                        <outlet property="progressView" destination="6br-bI-cv4" id="mem-NA-X0P"/>
                         <outlet property="tableView" destination="B3X-po-5Di" id="ckU-za-mht"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="330"/>
+            <point key="canvasLocation" x="708" y="330"/>
         </scene>
         <!--Movie View Controller-->
         <scene sceneID="etJ-i7-IVl">
@@ -72,23 +96,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="SI5-lo-y1Z">
-                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="SI5-lo-y1Z">
+                                <rect key="frame" x="0.0" y="65" width="326" height="419"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dx0-fz-RKd">
-                                <rect key="frame" x="8" y="386" width="312" height="253"/>
+                            <label opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="dx0-fz-RKd">
+                                <rect key="frame" x="0.0" y="482" width="380" height="141"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" red="0.19550906963430986" green="0.12803791930584235" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="JeR-Hg-PI4">
+                                <rect key="frame" x="138" y="298" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                     </scrollView>
                     <navigationItem key="navigationItem" id="HiS-QL-VwT"/>
                     <connections>
                         <outlet property="completeImageView" destination="SI5-lo-y1Z" id="9aH-FO-Jn5"/>
                         <outlet property="movieSynopsisView" destination="dx0-fz-RKd" id="mnZ-9z-5Aa"/>
+                        <outlet property="progressView" destination="JeR-Hg-PI4" id="gmM-Uo-pev"/>
+                        <outlet property="scrollView" destination="Rv8-c7-2Dj" id="Skb-jE-kmY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJe-gT-jAB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,4 +151,5 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

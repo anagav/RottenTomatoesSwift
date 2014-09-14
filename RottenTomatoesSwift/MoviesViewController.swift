@@ -13,7 +13,10 @@ class MoviesViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var progressView: UIActivityIndicatorView!
     var movies: Dictionary<String, AnyObject>! = nil;
     var movie: [NSDictionary]! = [];
     
@@ -39,10 +42,13 @@ class MoviesViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 self.movie = (self.movies["movies"] as AnyObject?) as? [NSDictionary];
                 
                 self.tableView.reloadData();
+                self.progressView.hidden = true;
                 
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
-                println ("ERROR");
+                self.errorView.hidden = false;
+                self.tableView.hidden = true
+                self.errorLabel.text = error.localizedDescription;
         })
         
         
@@ -95,12 +101,27 @@ class MoviesViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue!,
-        sender sender: AnyObject!){
+         sender: AnyObject!){
             //make sure that the segue is going to secondViewController
             let selectedIndex = self.tableView.indexPathForCell(sender as UITableViewCell)
-            var mov = self.movie[indexPath.row];
-            segue.destinationViewController.movieSynopsisView = 
+            var mov = self.movie[selectedIndex!.row];
             
+            if segue.identifier == "MovieViewController"{
+            
+                var destination = segue.destinationViewController as MovieViewController
+                //var mov = self.movie[indexPath.row];
+                
+                destination.movieSynopsisViewVar = mov["synopsis"] as String!;
+                var poster = mov["posters"] as NSDictionary
+                var posterurl1 = poster["original"] as String;
+                println(posterurl1)
+                destination.completeImageViewVar = posterurl1;
+   
+                
+                //var poster = mov["posters"] as NSDictionary
+                //var posterURL = poster["detailed"] as String
+                //destination.completeImageView.setImageWithURL(NSURL(string: posterURL));
+            }
     }
     
 

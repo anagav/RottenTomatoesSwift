@@ -12,12 +12,35 @@ class MovieViewController: UIViewController {
 
     @IBOutlet weak var completeImageView: UIImageView!
     
+    var completeImageViewVar : String = "";
+    var movieSynopsisViewVar :String = "";
+    
     @IBOutlet weak var movieSynopsisView: UILabel!
     
+    @IBOutlet weak var progressView: UIActivityIndicatorView!
+    @IBOutlet var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.scrollView.contentSize = CGSize(width:0, height: 800
+        )
+
+        progressView.hidden = true;
+
+        completeImageView.setImageWithURL(NSURL(string: completeImageViewVar));
+        
+        UIView.animateWithDuration(1.5, animations: {
+            self.completeImageView.alpha = 1.0
+        })
+        
+        movieSynopsisView.text = movieSynopsisViewVar;
+        
+        movieSynopsisView.sizeToFit();
+        
+        
+       
+
         // Do any additional setup after loading the view.
     }
 
