@@ -14,4 +14,4 @@ Tasks completed
 
 
 image:
-![](https://github.com/anagav/RottenTomatoesSwift/tree/master/RT.gif)
+![](https://github.com/anagav/RottenTomatoesSwift/tree/master/images/RT.gif)
