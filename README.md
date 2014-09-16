@@ -14,4 +14,4 @@ Tasks completed
 
 
 image:
-![][RT.gif]
+![Licecap Image][RT.gif]
