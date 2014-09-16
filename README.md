@@ -14,4 +14,4 @@ Tasks completed
 
 
 image:
-![Licecap Image][RT.gif]
+![Licecap Image](https://github.com/anagav/RottenTomatoesSwift/tree/master)
